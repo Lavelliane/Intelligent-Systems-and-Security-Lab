@@ -1,9 +1,5 @@
-
+import LandingPage from './layouts/LandingPage';
 
 export default function Home() {
-  return (
-    <>
-      <p className="text-2xl">Landing</p>
-    </>
-  );
+	return <LandingPage />;
 }
