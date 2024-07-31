@@ -26,9 +26,9 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={`${kumbhSans.className} ${inter.variable}`} suppressHydrationWarning={true}>
 				<NextUIProvider>
-					<main className='w-full'>
+					<main className='w-full flex flex-col items-center'>
 						<NavbarComponent />
-						{children}
+						<div className='mt-16 w-full'>{children}</div>
 					</main>
 				</NextUIProvider>
 			</body>
