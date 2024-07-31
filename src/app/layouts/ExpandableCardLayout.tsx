@@ -1,8 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import ExpandableCard from './ExpandableCard';
-import { ScrollShadow } from '@nextui-org/react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 
 const userData = [
 	{
@@ -68,30 +67,76 @@ const userData = [
 ];
 
 const ExpandableCardLayout = () => {
-	const [isDragging, setIsDragging] = useState(false);
 	const [isClick, setIsClick] = useState(false);
 	const [selectedCard, setSelectedCard] = useState<number | null>(0);
 	const [isClient, setIsClient] = useState<boolean>(false);
-	const [width, setWidth] = useState(0);
-	const carousel = useRef(null);
+	const [atStart, setAtStart] = useState(true);
+	const [atEnd, setAtEnd] = useState(false);
+
+	const carousel = useRef<HTMLDivElement>(null);
+	const x = useMotionValue(0);
 
 	useEffect(() => {
 		setIsClient(true);
 	}, []);
 
+	useEffect(() => {
+		const updateScrollPosition = () => {
+			const currentX = x.get();
+			const element = carousel.current;
+
+			if (element) {
+				const scrollWidth = element.scrollWidth;
+				const clientWidth = element.clientWidth;
+
+				if (currentX >= 0) {
+					setAtStart(true);
+					setAtEnd(false);
+				} else if (currentX <= clientWidth - scrollWidth) {
+					setAtStart(false);
+					setAtEnd(true);
+				} else {
+					setAtStart(false);
+					setAtEnd(false);
+				}
+			}
+		};
+
+		const unsubscribeX = x.on('change', updateScrollPosition);
+
+		return () => unsubscribeX();
+	}, [x]);
+
 	const handleCardClick = (index: number) => {
 		if (isClick) {
-			setSelectedCard(index === selectedCard ? null : index);
+			setSelectedCard(index);
 		}
 	};
 
 	return (
-		<motion.div ref={carousel} className='flex items-center w-full justify-start overflow-hidden'>
+		<motion.div ref={carousel} className='flex items-center w-full justify-start overflow-hidden relative'>
+			{!atStart && (
+				<motion.div
+					initial={{ width: 0, height: '100%', opacity: 0 }}
+					animate={{ width: '60px', height: '100%', opacity: 100 }}
+					exit={{ width: 0, height: '100%', opacity: 0 }}
+					className='bg-gradient-to-r from-white to-transparent absolute z-10 left-0'
+				></motion.div>
+			)}
+			{!atEnd && (
+				<motion.div
+					initial={{ width: 0, height: '100%', opacity: 0 }}
+					animate={{ width: '60px', height: '100%', opacity: 100 }}
+					exit={{ width: 0, height: '100%', opacity: 0 }}
+					className='w-36 h-full bg-gradient-to-l from-white to-transparent absolute z-10 right-0'
+				></motion.div>
+			)}
 			<motion.div
 				drag='x'
 				onDrag={() => setIsClick(false)}
 				onMouseMoveCapture={() => setIsClick(true)}
 				dragConstraints={carousel}
+				style={{ x }}
 				className='flex cursor-grab active:cursor-grabbing gap-8'
 			>
 				{isClient &&
