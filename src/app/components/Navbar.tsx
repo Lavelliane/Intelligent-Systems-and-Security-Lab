@@ -41,7 +41,7 @@ const NavbarComponent = () => {
 
 	const [isOpen, setIsOpen] = React.useState(false);
 	return (
-		<Navbar className='h-16 w-full fixed bg-opacity-80 bg-white backdrop-blur-sm z-[999]'>
+		<Navbar className='h-16 w-full fixed bg-opacity-80 bg-white backdrop-blur-sm z-[999] pt-10'>
 			<div className='max-w-7xl w-full mx-auto flex'>
 				<NavbarContent className='sm:hidden' justify='start'>
 					<NavbarMenuToggle />
@@ -100,7 +100,7 @@ const NavbarComponent = () => {
 									/>
 								</Button>
 							</PopoverTrigger>
-							<PopoverContent className='bg-transparent'>
+							<PopoverContent className='bg-white'>
 								<div className='flex flex-col gap-2 items-start justify-start shadow-lg rounded-lg p-4 '>
 									{labMembers.map((labMember) => (
 										<NavbarItem key={labMember.name} isActive={pathName === labMember?.href}>
