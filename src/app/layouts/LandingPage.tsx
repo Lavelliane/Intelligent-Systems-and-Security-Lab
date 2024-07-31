@@ -1,6 +1,8 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import content from '@/app/content/LandingPageContent.json';
+import ExpandableCardLayout from './ExpandableCardLayout';
 
 const LandingPage = () => {
 	return (
@@ -24,6 +26,7 @@ const LandingPage = () => {
 				{/* Radial gradient for the container to give a faded look */}
 				<div className='absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]'></div>
 				<Image
+					className='drop-shadow-md'
 					src={'/images/header-image-sample.png'}
 					alt='header image sample'
 					width={1800}
@@ -36,6 +39,7 @@ const LandingPage = () => {
 					<h2 className='font-bold text-primary text-xl'>{content.Section2Header}</h2>
 					<p className='font-medium text-foreground text-2xl leading-10'>{content.Section2Description}</p>
 				</div>
+				<ExpandableCardLayout />
 			</div>
 		</main>
 	);

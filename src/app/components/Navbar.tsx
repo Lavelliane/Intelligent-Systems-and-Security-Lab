@@ -15,8 +15,6 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from '@nextui-org/react';
-import { Select, SelectSection, SelectItem } from '@nextui-org/select';
-import { User } from '@nextui-org/user';
 import { usePathname } from 'next/navigation';
 import { CaretDown } from '@phosphor-icons/react';
 
@@ -100,8 +98,8 @@ const NavbarComponent = () => {
 									/>
 								</Button>
 							</PopoverTrigger>
-							<PopoverContent className='bg-transparent'>
-								<div className='flex flex-col gap-2 items-start justify-start shadow-lg rounded-lg p-4 '>
+							<PopoverContent>
+								<div className='flex flex-col gap-2 items-start justify-start shadow-md rounded-lg p-4 bg-white'>
 									{labMembers.map((labMember) => (
 										<NavbarItem key={labMember.name} isActive={pathName === labMember?.href}>
 											<Link
