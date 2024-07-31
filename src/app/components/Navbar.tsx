@@ -41,7 +41,7 @@ const NavbarComponent = () => {
 
 	const [isOpen, setIsOpen] = React.useState(false);
 	return (
-		<Navbar className='h-16 w-full fixed bg-opacity-80 bg-white backdrop-blur-sm z-[999] pt-10'>
+		<Navbar className='h-16 w-full fixed bg-opacity-80 bg-white backdrop-blur-sm z-[999] py-8'>
 			<div className='max-w-7xl w-full mx-auto flex'>
 				<NavbarContent className='sm:hidden' justify='start'>
 					<NavbarMenuToggle />
