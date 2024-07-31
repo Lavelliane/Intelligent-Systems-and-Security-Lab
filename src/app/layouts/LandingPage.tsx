@@ -34,7 +34,7 @@ const LandingPage = () => {
 					style={{ maxWidth: '1280px', width: '100%', height: 'auto', objectFit: 'contain', zIndex: 10 }}
 				/>
 			</div>
-			<div className='min-h-screen flex flex-col items-start gap-10 my-40 max-w-7xl w-full mx-auto'>
+			<div className='min-h-screen flex flex-col items-start gap-20 my-40 max-w-7xl w-full mx-auto'>
 				<div className='w-1/3 flex flex-col items-start justify-start gap-2'>
 					<h2 className='font-bold text-primary text-xl'>{content.Section2Header}</h2>
 					<p className='font-medium text-foreground text-2xl leading-10'>{content.Section2Description}</p>
