@@ -14,6 +14,7 @@ interface ExpandableCardProps {
 	selectedCard: boolean;
 	onCardClick: () => void;
 }
+//add comment
 
 const ExpandableCard = ({ user, selectedCard, onCardClick }: ExpandableCardProps) => {
 	return (
