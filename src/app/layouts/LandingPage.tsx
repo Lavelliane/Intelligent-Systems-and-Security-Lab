@@ -41,6 +41,12 @@ const LandingPage = () => {
 				</div>
 				<ExpandableCardLayout />
 			</div>
+			<div className='min-h-screen flex flex-col items-start gap-20 my-40 max-w-7xl w-full mx-auto'>
+				<div className='w-full flex flex-col items-center justify-center gap-2'>
+					<h2 className='font-bold text-primary text-xl'>{content.Section3Header}</h2>
+					<p className='font-medium text-foreground text-2xl leading-10'>{content.Section3Description}</p>
+				</div>
+			</div>
 		</main>
 	);
 };

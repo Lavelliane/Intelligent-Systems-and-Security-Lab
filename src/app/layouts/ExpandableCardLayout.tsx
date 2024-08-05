@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ExpandableCard from './ExpandableCard';
 import { motion, useMotionValue } from 'framer-motion';
+import SkeletonCard from './SkeletonCard';
 
 const userData = [
 	{
@@ -149,6 +150,8 @@ const ExpandableCardLayout = () => {
 						/>
 					))}
 			</motion.div>
+
+			{isClient && userData.map((user, index) => <SkeletonCard key={index} />)}
 		</motion.div>
 	);
 };
