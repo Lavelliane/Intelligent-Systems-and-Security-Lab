@@ -1,0 +1,44 @@
+{
+	"landing": {
+		"section1": {
+			"header": "Welcome to Intelligent and Secure Systems Lab!",
+			"description": "The Intelligent and Secure Systems Laboratory (ISS Lab), belonging to University of San Carlos, is dedicated to researching mobile internet security and IoT security, collaborating with experts globally to develop innovative solutions and publishing findings in top international journals and conferences."
+		},
+		"section2": {
+			"header": "Explore Our Top Research",
+			"description": "Discover the various research and findings that showcase our dedication to innovation"
+		},
+		"section3": {
+			"header": "Stay updated with upcoming conferences",
+			"description": "A series of insightful presentations, engaging workshops, and invaluable networking opportunities."
+		}
+	},
+
+	"footer": {
+		"description": "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam",
+		"copyright": "Copyright © 2024 ISS LAB",
+		"ARR": "All Rights Reserved",
+		"TAC": "Terms and Conditions",
+		"PP": "Privacy Policy",
+		"about": {
+			"label": "About",
+			"sub-sections": {
+				"label1": "Research",
+				"label2": "Partners",
+				"label3": "Lab Members"
+			}
+		},
+		"legal": {
+			"label": "Legal",
+			"sub-sections": { "label1": "Privacy Policy", "label2": "Terms and Conditions" }
+		},
+		"contact-us": {
+			"label": "Contact us",
+			"sub-sections": {
+				"label1": "iss@company.com",
+				"label2": "(414) 687 - 5892",
+				"label3": "9W27+R8R, Sitio Nasipit, Brgy, Cebu City"
+			}
+		}
+	}
+}

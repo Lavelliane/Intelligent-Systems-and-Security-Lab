@@ -1,8 +1,16 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['https://i.pravatar.cc'],
+		remotePatterns: [
+			{ protocol: 'https', hostname: 'www.korea.net' },
+			{ protocol: 'https', hostname: 'ubf.org' },
+			{ protocol: 'https', hostname: 'i.pravatar.cc' },
+		],
 	},
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
